@@ -1,0 +1,8 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<%= form_tag("/home/calculate_vacation_days", method: "get") do %>
+    <%= label_tag(:q, "Enter something here:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Submit") %>
+<% end %>
