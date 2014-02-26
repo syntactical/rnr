@@ -1,18 +1,37 @@
-<%= form_tag("/home/calculate_vacation_days", method: "get") do %>
-    <%= label_tag(:start_date, "Start Date:") %>
-    <%= text_field_tag(:start_date) %>
+<%= form_for @vacation_calculator, method: :get, url: calculate_path do |f| %>
+    <% if @vacation_calculator.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@vacation_calculator.errors.count, "error") %> prohibited this form from being saved:</h2>
 
-    <%= label_tag(:vacation_balance, "Vacation Balance") %>
-    <%= text_field_tag(:vacation_balance) %>
+            <ul>
+                <% @vacation_calculator.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-    <%= label_tag(:accrual_rate, "Initial Accrual Rate:") %>
-    <%= text_field_tag(:accrual_rate) %>
-
-    <%= label_tag(:salesforce_text, "Text from SalesForce Time Off:") %>
-    <%= text_field_tag(:salesforce_text) %>
-
-    <%= label_tag(:end_date, "Calculate my vacation days as of:") %>
-    <%= text_field_tag(:end_date) %>
-
-    <%= submit_tag("Submit") %>
+    <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label "Start date" %><br>
+        <%= date_field(:vacation_calculator, :start_date, value: @vacation_calculator.start_date) %>
+    </div>
+    <div class="field">
+        <%= f.label "End date" %><br>
+        <%= date_field(:vacation_calculator, :end_date, value: @vacation_calculator.end_date) %>
+    </div>
+    <div class="field">
+        <%= f.label :accrual_rate %><br>
+        <%= f.text_field :accrual_rate %>
+    </div>
+    <div class="field">
+        <%= f.label :create %><br>
+        <%= f.text_field :create %>
+    </div>
+    <div class="actions">
+        <%= f.submit "Calculate vacation days" %>
+    </div>
 <% end %>
