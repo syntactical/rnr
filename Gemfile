@@ -34,12 +34,12 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-end
-
-group :test do
-  gem 'shoulda-matchers'
 end
