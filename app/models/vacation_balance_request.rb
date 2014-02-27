@@ -1,6 +1,6 @@
 require 'active_model'
 
-class VacationCalculator
+class VacationBalanceRequest
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend ActiveModel::Naming

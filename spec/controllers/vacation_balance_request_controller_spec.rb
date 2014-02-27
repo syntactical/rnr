@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe HomeController do
+describe VacationBalanceRequestController do
 
   it 'should create vacation calculator with success response' do
 
