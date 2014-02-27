@@ -7,7 +7,7 @@ describe HomeController do
     true.should == true
   end
 
-  it 'renders index template' do
+  it 'should render index template' do
     get :index
     response.should render_template :index
   end

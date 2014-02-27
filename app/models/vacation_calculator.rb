@@ -5,9 +5,9 @@ class VacationCalculator
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name ,:start_date, :end_date, :accrual_rate, :create
+  attr_accessor :vacation_balance, :start_date, :end_date, :accrual_rate
 
-  validates_length_of :name, :maximum => 10
+  validates_numericality_of :vacation_balance
   validates :accrual_rate, numericality: {only_integer: true, greater_than_or_equal_to: 10}
   validates :start_date, presence: true
   validates :end_date, presence: true
