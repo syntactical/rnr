@@ -2,13 +2,8 @@ require 'spec_helper'
 
 describe VacationBalanceRequestController do
 
-  it 'should create vacation calculator with success response' do
-
-    true.should == true
-  end
-
-  it 'should render index template' do
+  it 'should instantiate a new empty VacationBalanceRequest' do
     get :index
-    response.should render_template :index
+    assigns(:vacation_balance_request).should be_a(VacationBalanceRequest)
   end
 end
