@@ -16,6 +16,6 @@ class VacationBalanceRequestController < ApplicationController
   end
 
   def vacation_balance_request_params
-    params.require(:vacation_balance_request).permit(:vacation_balance, :start_date, :end_date, :accrual_rate)
+    params.require(:vacation_balance_request).permit(:vacation_balance, :start_date, :end_date, :accrual_rate, :salesforce_text)
   end
 end

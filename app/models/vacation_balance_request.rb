@@ -5,7 +5,7 @@ class VacationBalanceRequest
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :vacation_balance, :start_date, :end_date, :accrual_rate
+  attr_accessor :vacation_balance, :start_date, :end_date, :accrual_rate, :salesforce_text
 
   validates_numericality_of :vacation_balance
   validates_numericality_of :accrual_rate, only_integer: true, greater_than_or_equal_to: 10
