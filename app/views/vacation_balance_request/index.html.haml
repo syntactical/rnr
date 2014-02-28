@@ -1,26 +1,26 @@
 = form_for @vacation_balance_request, method: :get, url: calculate_path do |f|
   - if @vacation_balance_request.errors.any?
     .alert.alert-danger
-      %h2
+      %h3
         = pluralize(@vacation_balance_request.errors.count, "error")
-        prohibited this form from being saved:
+        occurred:
       %ul
         - @vacation_balance_request.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = f.label :vacation_balance, 'Rollover vacation days as of January 1, 2014'
+    = f.label :vacation_balance, 'Rollover vacation days as of January 1, 2014', :class => 'control-label'
     = f.text_field :vacation_balance, :class => 'form-control'
   .form-group
-    = f.label :start_date, 'Start date'
+    = f.label :start_date, 'Start date',  :class => 'control-label'
     = date_field(:vacation_balance_request, :start_date, value: @vacation_balance_request.start_date,  :class => 'form-control')
   .form-group
-    = f.label :end_date, 'End date'
+    = f.label :end_date, 'End date',  :class => 'control-label'
     = date_field(:vacation_balance_request, :end_date, value: @vacation_balance_request.end_date,  :class => 'form-control')
   .form-group
-    = f.label :accrual_rate, 'Initial accrual rate'
+    = f.label :accrual_rate, 'Initial accrual rate',  :class => 'control-label'
     = f.text_field :accrual_rate,  :class => 'form-control'
   .form-group
-    = f.label :salesforce_text, 'Copy Salesforce text here'
+    = f.label :salesforce_text, 'Copy Salesforce text here',  :class => 'control-label'
     = f.text_area :salesforce_text, :class => 'form-control'
   .action
     = f.submit "Calculate vacation days", :class => 'btn btn-primary btn-block'
