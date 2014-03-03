@@ -11,6 +11,7 @@ class VacationBalanceRequest
   validates_numericality_of :accrual_rate, only_integer: true, greater_than_or_equal_to: 10
   validates_presence_of :start_date, :end_date
   validate :validate_dates
+  validates :start_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}
 
   def initialize(attributes = {})
     attributes.each do |name, value|
