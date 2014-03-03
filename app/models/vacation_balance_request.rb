@@ -7,11 +7,12 @@ class VacationBalanceRequest
 
   attr_accessor :vacation_balance, :start_date, :end_date, :accrual_rate, :salesforce_text
 
-  validates_numericality_of :vacation_balance
-  validates_numericality_of :accrual_rate, only_integer: true, greater_than_or_equal_to: 10
-  validates_presence_of :start_date, :end_date
+  validates_presence_of :start_date, :end_date, :vacation_balance, :accrual_rate
+  validates_numericality_of :vacation_balance, if: "vacation_balance.present?"
+  validates_numericality_of :accrual_rate, only_integer: true, greater_than_or_equal_to: 10, if: "accrual_rate.present?"
   validate :validate_dates
-  validates :start_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}
+  validates :start_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}, if: "start_date.present?"
+  validates :end_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}, if: "end_date.present?"
 
   def initialize(attributes = {})
     attributes.each do |name, value|
