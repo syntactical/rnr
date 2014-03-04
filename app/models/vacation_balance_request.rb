@@ -1,9 +1,7 @@
 require 'active_model'
 
 class VacationBalanceRequest
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
+  include ActiveModel::Model
 
   attr_accessor :vacation_balance, :start_date, :end_date, :accrual_rate, :salesforce_text
 
@@ -13,16 +11,6 @@ class VacationBalanceRequest
   validate :validate_dates
   validates :start_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}, if: "start_date.present?"
   validates :end_date, format: { with: /\d{4}\/\d{2}\/\d{2}/, message: 'is not in format: yyyy/mm/dd'}, if: "end_date.present?"
-
-  def initialize(attributes = {})
-    attributes.each do |name, value|
-      send("#{name}=", value)
-    end
-  end
-
-  def persisted?
-    false
-  end
 
   def validate_dates
     if !start_date.nil? or !end_date.nil?
