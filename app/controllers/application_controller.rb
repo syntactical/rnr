@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   skip_before_filter :verify_authenticity_token
 
-  before_action :require_login, :unless => :callback_controller?
+  before_action :require_login
 
   def require_login
     if session[:userinfo]
