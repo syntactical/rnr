@@ -7,7 +7,7 @@ Rnr::Application.routes.draw do
   root 'vacation_balance_request#index'
   get 'calculate' => 'vacation_balance_request#calculate'
 
-  get '/auth/saml/callback' => 'callback#store', as: 'login_success'
+  post '/auth/saml/callback' => 'callback#store', as: 'login_success'
   get '/auth/failure' => 'callback#failure', as: 'login_failure'
 
   # Example of regular route:
