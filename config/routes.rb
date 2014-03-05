@@ -3,8 +3,13 @@ Rnr::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
   root 'vacation_balance_request#index'
   get 'calculate' => 'vacation_balance_request#calculate'
+
+  get '/auth/saml/callback' => 'callback#store', as: 'login_success'
+  get '/auth/failure' => 'callback#failure', as: 'login_failure'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
