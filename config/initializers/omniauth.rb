@@ -18,5 +18,5 @@ GvZhS5LO3q2PUvq4qHx1SchiKbxje+CUHCqOOODOjQeD+SVcUBUPJ8I9OWi9aDiQjKnmpr87h8PH
 +Ni1yB2C2KRHdxxSR6SfRjkyNeVEwzTyh2Y2zu+hghddKvllWQoSfwXhIcSrLKtsL71NrQ==
 -----END CERTIFICATE-----
 ",
-           :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+           :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" if Rails.env.production?
 end
