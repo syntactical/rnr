@@ -9,8 +9,6 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if session[:userinfo].nil?
-    #  redirect_to root_path
-    #else
       redirect_to '/auth/saml'
     end
   end
