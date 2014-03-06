@@ -1,5 +1,6 @@
 class CallbackController < ApplicationController
   skip_before_action :require_login, only: [:store]
+  skip_before_filter :verify_authenticity_token, only: [:store]
 
   def store
     session[:userinfo] = request.env['omniauth.auth']
