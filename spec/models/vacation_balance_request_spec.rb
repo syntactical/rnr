@@ -14,8 +14,6 @@ describe VacationBalanceRequest do
       vacation_balance_request.should_not be_valid
     end
 
-    it { should validate_presence_of(:start_date) }
-    it { should validate_presence_of(:end_date) }
     it { should validate_numericality_of(:vacation_balance) }
     it { should validate_numericality_of(:accrual_rate).only_integer.is_greater_than_or_equal_to(10) }
   end

@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :require_login if Rails.env.production?
 
   def require_login
-    if session[:userinfo].nil?
-      redirect_to '/auth/saml'
-    end
+    redirect_to '/auth/saml' if session[:userinfo].nil?
   end
 end
