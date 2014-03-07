@@ -13,7 +13,8 @@ describe VacationBalanceRequest do
 
       vacation_balance_request.should_not be_valid
     end
-
+    it { should allow_value('2014/03/06').for(:start_date) }
+    it { should_not allow_value('03/06/2014').for(:end_date) }
     it { should validate_numericality_of(:vacation_balance) }
     it { should validate_numericality_of(:accrual_rate).only_integer.is_greater_than_or_equal_to(10) }
   end

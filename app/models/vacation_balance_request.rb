@@ -13,7 +13,7 @@ class VacationBalanceRequest
 
   private
   def validate_dates
-    if !start_date.nil? or !end_date.nil?
+    if !start_date.nil? and !end_date.nil?
       errors.add(:end_date, "can't be before the start date") if end_date < start_date
     end
   end
