@@ -1,6 +1,7 @@
 module VacationBalanceRequestHelper
   def client
-    @client ||= Restforce.new instance_url:  'https://test.salesforce.com/services/oauth2/authorize',
+    @client ||= Restforce.new :host => 'test.salesforce.com',
+                              instance_url:  'https://cs2.salesforce.com',
                           oauth_token:   session['token']
   end
 end
