@@ -6,5 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            :idp_cert                           => ENV["IDP_CERT"],
            :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress" if Rails.env.production?
 
-  provider :salesforce, ENV["SALESFORCE_KEY"], ENV["SALESFORCE_SECRET"]
+  provider OmniAuth::Strategies::SalesforceSandbox, ENV["SALESFORCE_KEY"], ENV["SALESFORCE_SECRET"]
 end
