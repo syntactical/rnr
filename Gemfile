@@ -34,6 +34,7 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'omniauth'
 gem 'omniauth-saml'
+gem 'omniauth-salesforce'
 
 
 group :doc do
