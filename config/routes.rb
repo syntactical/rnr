@@ -10,6 +10,8 @@ Rnr::Application.routes.draw do
   post '/auth/:provider/callback' => 'callback#store', as: 'login_success'
   get '/auth/failure' => 'callback#failure', as: 'login_failure'
 
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

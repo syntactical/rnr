@@ -8,7 +8,7 @@ class VacationBalanceRequestController < ApplicationController
   def calculate
     @vacation_balance_request = VacationBalanceRequest.new(vacation_balance_request_params)
     @vacation_balance_request.valid?
-    puts client.class + " is the class of the client"
+    puts client
     first_thing = client.query("SELECT id, name FROM contact WHERE name ='Greg Dutcher'").first
     puts first_thing.name
     render action: 'index'
