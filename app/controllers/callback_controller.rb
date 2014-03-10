@@ -4,7 +4,7 @@ class CallbackController < ApplicationController
 
   def store
     session[:userinfo] = request.env['omniauth.auth']
-    puts request.env['omniauth.auth']['credentials']
+    puts "Credentials: " + request.env['omniauth.auth']['credentials']
     redirect_to root_path
   end
 
