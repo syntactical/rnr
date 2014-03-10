@@ -1,5 +1,5 @@
 class VacationBalanceRequestController < ApplicationController
-  helper VacationBalanceRequestHelper
+  include VacationBalanceRequestHelper
 
   def index
     @vacation_balance_request = VacationBalanceRequest.new
