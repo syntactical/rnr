@@ -35,7 +35,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'omniauth'
 gem 'omniauth-saml'
 gem 'omniauth-salesforce'
-gem 'force'
+gem 'restforce'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -58,11 +58,6 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
-    force (0.0.1)
-      faraday (~> 0.8.4)
-      faraday_middleware (>= 0.8.8)
-      hashie (>= 1.2.0, < 2.1)
-      json (>= 1.7.5, < 1.9.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -139,6 +134,11 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    restforce (1.4.3)
+      faraday (~> 0.8.4)
+      faraday_middleware (>= 0.8.8)
+      hashie (>= 1.2.0, < 2.1)
+      json (>= 1.7.5, < 1.9.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -207,7 +207,6 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails
-  force
   haml
   haml-rails
   jbuilder (~> 1.2)
@@ -218,6 +217,7 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails_12factor (= 0.0.2)
   rails_layout
+  restforce
   rspec
   rspec-rails
   sass-rails (~> 4.0.0)
