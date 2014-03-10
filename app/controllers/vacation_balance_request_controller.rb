@@ -1,4 +1,6 @@
 class VacationBalanceRequestController < ApplicationController
+  helper VacationBalanceRequestHelper
+
   def index
     @vacation_balance_request = VacationBalanceRequest.new
   end
