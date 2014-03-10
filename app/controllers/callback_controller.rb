@@ -4,9 +4,11 @@ class CallbackController < ApplicationController
 
   def store
     session[:userinfo] = request.env['omniauth.auth']
-    credentials = request.env['omniauth.auth']['credentials']
-    puts credentials['token']
-    puts credentials['instance_url']
+    logger.info "#{env["omniauth.auth"]["extra"]["display_name"]} just authenticated"
+    credentials = env["omniauth.auth"]["credentials"]
+    session['token'] = credentials["token"]
+    session['refresh_token'] = credentials["refresh_token"]
+    session['instance_url'] = credentials["instance_url"]
     redirect_to root_path
   end
 
