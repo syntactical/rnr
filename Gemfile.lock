@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/michaelpai/omniauth-salesforce
+  revision: 5d28eb8638f7700272d7c29fc26eb5d69182caf7
+  specs:
+    omniauth-salesforce (1.0.4)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,9 +114,6 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
-    omniauth-salesforce (1.0.4)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.0)
     omniauth-saml (1.1.0)
       omniauth (~> 1.1)
       ruby-saml (~> 0.7.2)
@@ -219,7 +224,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth
-  omniauth-salesforce
+  omniauth-salesforce!
   omniauth-saml
   pg
   rails (= 4.0.3)

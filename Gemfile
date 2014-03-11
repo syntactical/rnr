@@ -36,7 +36,7 @@ gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-saml'
-gem 'omniauth-salesforce'
+gem 'omniauth-salesforce', :git=> 'git://github.com/michaelpai/omniauth-salesforce'
 gem 'restforce'
 
 gem 'activerecord-session_store'
