@@ -7,10 +7,9 @@ Rnr::Application.routes.draw do
   root 'vacation_balance_request#index'
   get 'calculate' => 'vacation_balance_request#calculate'
 
-  match '/auth/:provider/callback' => 'callback#store', as: 'login_success', via: [:get, :post]
+  post '/auth/saml/callback' => 'callback#okta_store', as: 'login_success_on_okta'
+  get '/auth/salesforcesandbox/callback' => 'callback#salesforce_store', as: 'login_success_on_salesforce'
   get '/auth/failure' => 'callback#failure', as: 'login_failure'
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
