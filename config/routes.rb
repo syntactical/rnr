@@ -7,7 +7,7 @@ Rnr::Application.routes.draw do
   root 'vacation_balance_request#index'
   get 'calculate' => 'vacation_balance_request#calculate'
 
-  post '/auth/:provider/callback' => 'callback#store', as: 'login_success'
+  match '/auth/:provider/callback' => 'callback#store', as: 'login_success', via: [:get, :post]
   get '/auth/failure' => 'callback#failure', as: 'login_failure'
 
 

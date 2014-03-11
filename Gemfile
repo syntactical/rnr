@@ -32,10 +32,14 @@ gem 'bootstrap-sass'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'pg'
+
 gem 'omniauth'
 gem 'omniauth-saml'
 gem 'omniauth-salesforce'
 gem 'restforce'
+
+gem 'activerecord-session_store'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -60,4 +64,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'sqlite3'
 end
