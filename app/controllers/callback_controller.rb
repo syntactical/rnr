@@ -3,13 +3,13 @@ class CallbackController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:okta_store, :salesforce_store]
 
   def okta_store
-    puts request.env['omniauth.auth']
     session[:userinfo] = request.env['omniauth.auth']
     redirect_to '/auth/salesforcesandbox'
   end
 
   def salesforce_store
     puts "#{request.env['omniauth.auth']['info']['name']} just authenticated"
+    session[:current_user] = request.env['omniauth.auth']['info']['name']
     credentials = request.env["omniauth.auth"]["credentials"]
     session[:token] = credentials["token"]
     session[:refresh_token] = credentials["refresh_token"]
