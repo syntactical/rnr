@@ -24,8 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:userinfo] = nil
     reset_session
-    redirect_to root_path
+    redirect_to 'https://thoughtworks.oktapreview.com/login/signout?fromURI=https://rnr-rails.herokuapp.com'
   end
 end
