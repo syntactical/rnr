@@ -3,6 +3,7 @@ class VacationBalanceRequestController < ApplicationController
 
   def index
     @vacation_balance_request = VacationBalanceRequest.new
+    puts 'from index: ' + session[:userinfo]
   end
 
   def calculate
