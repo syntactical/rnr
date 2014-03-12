@@ -1,4 +1,4 @@
-class CallbackController < ApplicationController
+class SessionsController < ApplicationController
   skip_before_action :require_login
   skip_before_filter :verify_authenticity_token, only: [:okta_store, :salesforce_store]
 
