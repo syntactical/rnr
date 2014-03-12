@@ -12,8 +12,10 @@
 
     .container.spacer
       %header.page-header
+        %ul.nav.nav-pills.pull-right
+          %li
+            %p.navbar-text Hello #{@current_user}! (#{link_to 'Log out', logout_path, :class => "navbar-link"})
         %h1 RNR
-        Hello #{@current_user}! (= link_to 'Log out', logout_url)
       .row
         .col-md-4.col-md-offset-4
           = yield
