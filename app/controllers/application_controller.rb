@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login if Rails.env.production?
 
   def require_login
-    if session[:userinfo] == request.env['omniauth.auth']
+    if session[:userinfo]
       @current_user = session[:current_user]
     else
       redirect_to '/auth/saml'
