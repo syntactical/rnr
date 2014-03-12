@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:okta_store, :salesforce_store]
 
   def okta_store
+    reset_session
     session[:userinfo] = request.env['omniauth.auth']
     redirect_to '/auth/salesforcesandbox'
   end
@@ -19,5 +20,11 @@ class SessionsController < ApplicationController
 
   def failure
     @error_msg = request.params['message']
+    redirect_to '/auth/saml'
+  end
+
+  def destroy
+    reset_session
+    redirect_to root_path
   end
 end
