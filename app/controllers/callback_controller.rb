@@ -3,6 +3,7 @@ class CallbackController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:okta_store, :salesforce_store]
 
   def okta_store
+    puts request.env['omniauth.auth']
     session[:userinfo] = request.env['omniauth.auth']
     redirect_to '/auth/salesforcesandbox'
   end
