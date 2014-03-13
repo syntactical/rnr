@@ -8,8 +8,8 @@ class VacationBalanceRequestController < ApplicationController
   def calculate
     @vacation_balance_request = VacationBalanceRequest.new(vacation_balance_request_params)
     @vacation_balance_request.valid?
-    first_thing = client.query("SELECT id, name FROM contact WHERE name ='Greg Dutcher'").first
-    puts first_thing.name
+    first_thing = client.query("SELECT Id, Name FROM contact WHERE Name ='Greg Dutcher'").first
+    puts first_thing.Name
     render action: 'index'
   end
 
