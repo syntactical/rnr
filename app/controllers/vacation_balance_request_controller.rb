@@ -8,8 +8,9 @@ class VacationBalanceRequestController < ApplicationController
   def calculate
     @vacation_balance_request = VacationBalanceRequest.new(vacation_balance_request_params)
     @vacation_balance_request.valid?
-    first_thing = client.query("SELECT Name, pse__Start_Date__c, pse__Timecard_Header__r.pse__Total_Hours__c FROM pse__Timecard__c").first
-    puts first_thing.Name
+    first_thing = client.query("SELECT pse__Start_Date__c, pse__Milestone__r.Name, pse__Timecard_Header__r.pse__Total_Hours__c FROM pse__Timecard__c WHERE pse__Milestone__r.Name = 'Annual lv; vacation'").first
+    puts first_thing.pse__Milestone__r.Name
+    puts first_thing.pse__Start_Date__c
     puts first_thing.pse__Timecard_Header__r.pse__Total_Hours__c
     render action: 'index'
   end
